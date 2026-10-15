@@ -4,17 +4,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#0F1B2D",
-        paper: "#F4F6F8",
-        tide: { DEFAULT: "#0E7C86", dark: "#0A5C63" },
-        line: "#D5DCE3",
-        muted: "#5B6878",
+        night: "#08090C",   // page background
+        panel: "#101218",   // cards
+        raised: "#171A22",  // hover / inputs
+        line: "#232733",    // borders
+        snow: "#ECEEF4",    // main text
+        mist: "#8B93A7",    // secondary text
+        volt: { DEFAULT: "#C6F54A", dark: "#A9D92F" }, // accent
       },
       fontFamily: {
-        display: ['"Bricolage Grotesque"', "system-ui", "sans-serif"],
-        serif: ['"Source Serif 4"', "Georgia", "serif"],
-        sans: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        display: ["Sora", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
       },
+      keyframes: {
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: { "fade-up": "fade-up 0.6s ease-out both" },
     },
   },
   plugins: [],

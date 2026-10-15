@@ -23,7 +23,7 @@ export default function App() {
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/admin/new" element={<AdminRoute><BlogForm /></AdminRoute>} />
           <Route path="/admin/edit/:id" element={<AdminRoute><BlogForm /></AdminRoute>} />
-          <Route path="*" element={<p className="p-10 text-muted">Page not found.</p>} />
+          <Route path="*" element={<p className="p-10 text-mist">Page not found.</p>} />
         </Routes>
       </main>
     </>

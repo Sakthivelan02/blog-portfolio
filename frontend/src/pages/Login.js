@@ -26,8 +26,9 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={submit} className="mx-auto mt-16 max-w-sm space-y-4 px-5">
-      <h1 className="text-3xl font-extrabold">Log in</h1>
+    <form onSubmit={submit} className="card mx-auto mt-16 max-w-sm space-y-4">
+      <h1 className="text-3xl font-extrabold">Welcome back</h1>
+      <p className="text-sm text-mist">Log in to your account.</p>
       <div>
         <label className="label" htmlFor="email">Email</label>
         <input id="email" type="email" required autoComplete="email" className="field"
@@ -39,8 +40,8 @@ export default function Login() {
                value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
       </div>
       <button className="btn btn-primary w-full" disabled={busy}>{busy ? "Logging in…" : "Log in"}</button>
-      <p className="text-sm text-muted">
-        New here? <Link to="/signup" className="font-medium text-tide underline">Create an account</Link>
+      <p className="text-sm text-mist">
+        New here? <Link to="/signup" className="font-medium text-volt underline">Create an account</Link>
       </p>
     </form>
   );

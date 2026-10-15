@@ -3,31 +3,49 @@
 @tailwind utilities;
 
 body {
-  @apply bg-paper text-ink font-sans antialiased;
+  @apply bg-night text-snow font-sans antialiased;
+}
+
+/* soft glow behind the page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 28rem at 50% -8%, rgba(198, 245, 74, 0.10), transparent 60%),
+    radial-gradient(40rem 24rem at 105% 12%, rgba(110, 130, 255, 0.08), transparent 60%);
 }
 
 h1, h2, h3 {
   @apply font-display;
 }
 
+::selection {
+  background: #C6F54A;
+  color: #08090C;
+}
+
 :focus-visible {
-  outline: 2px solid #0E7C86;
+  outline: 2px solid #C6F54A;
   outline-offset: 2px;
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
   }
-  .btn-primary { @apply bg-ink text-white hover:bg-tide-dark; }
-  .btn-ghost { @apply border border-line bg-white text-ink hover:border-ink; }
-  .btn-danger { @apply border border-red-200 bg-white text-red-700 hover:bg-red-50; }
+  .btn-primary { @apply bg-volt text-night hover:bg-volt-dark; }
+  .btn-ghost { @apply border border-line bg-panel text-snow hover:border-snow/40 hover:bg-raised; }
+  .btn-danger { @apply border border-red-500/30 bg-transparent text-red-400 hover:bg-red-500/10; }
   .field {
-    @apply w-full rounded-md border border-line bg-white px-3 py-2 text-sm placeholder:text-muted focus:border-tide;
+    @apply w-full rounded-xl border border-line bg-panel px-4 py-2.5 text-sm text-snow placeholder:text-mist focus:border-volt;
   }
-  .label { @apply mb-1 block text-sm font-medium; }
+  .label { @apply mb-1.5 block text-sm font-medium text-snow; }
+  .card { @apply rounded-2xl border border-line bg-panel p-6; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  * { transition: none !important; animation: none !important; }
 }

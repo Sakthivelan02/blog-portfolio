@@ -31,7 +31,7 @@ export default function Signup() {
   };
 
   return (
-    <form onSubmit={submit} className="mx-auto mt-16 max-w-sm space-y-4 px-5">
+    <form onSubmit={submit} className="card mx-auto my-16 max-w-sm space-y-4">
       <h1 className="text-3xl font-extrabold">Create an account</h1>
       <div>
         <label className="label" htmlFor="name">Name</label>
@@ -52,8 +52,8 @@ export default function Signup() {
                value={form.confirm} onChange={set("confirm")} />
       </div>
       <button className="btn btn-primary w-full" disabled={busy}>{busy ? "Creating account…" : "Sign up"}</button>
-      <p className="text-sm text-muted">
-        Already registered? <Link to="/login" className="font-medium text-tide underline">Log in</Link>
+      <p className="text-sm text-mist">
+        Already registered? <Link to="/login" className="font-medium text-volt underline">Log in</Link>
       </p>
     </form>
   );
