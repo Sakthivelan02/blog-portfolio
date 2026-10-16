@@ -6,7 +6,27 @@ const { verifyToken, isAdminUser } = require("./middleware/auth");
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000" }));
+// Allowed origins for CORS (Local and Vercel deployments)
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://blog-portfolio-brown.vercel.app",
+  "https://blog-portfolio-o1revu2br-sakthi-8293.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.get("/", (_req, res) => res.json({ status: "Blog Portfolio API is running" }));
