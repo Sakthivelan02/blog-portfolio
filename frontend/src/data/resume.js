@@ -90,8 +90,8 @@ const resume = {
       stack: "MERN Stack",
       demo: "https://dinco.vercel.app/login", // paste live demo URL
       points: [
-        "Architected a bulk-email application with a responsive React frontend and backend API integration for email-sending requests.",
-        "Managed deployment configuration and troubleshooting across Vercel and Render for seamless connectivity.",
+        "Developed a full-stack e-commerce platform with React frontend, Node.js backend, and MongoDB database for product management, user authentication, and order processing.",
+        "Implemented secure payment integration and inventory management features.",
       ],
     },
     {
